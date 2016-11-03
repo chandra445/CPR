@@ -1,0 +1,5 @@
+com\shoppingmall\controller\LoginAction.class
+com\shoppingmall\controller\MainController.class
+com\shoppingmall\pojo\CustomerRegistration.class
+com\shoppingmall\dao\CustomerRegDao.class
+com\shoppingmall\pojo\StoreRegistration.class
