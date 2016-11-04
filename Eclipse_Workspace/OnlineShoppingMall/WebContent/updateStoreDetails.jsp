@@ -117,7 +117,7 @@
     <body>
         <form action="updateStoreDetails.do" method="post" name=multi onsubmit="return checkStoreForm()">
             
-            <div style="position: absolute; width: 535px; height: 54px; z-index: 1; left: 435px; top: 266px" id="layer1">
+            <div style="position: absolute; width: 535px; height: 54px; z-index: 1; left: 590px; top: 266px" id="layer1">
                 <div align="center">
                 <table border="0" width="73%" id="table1">
                     <tr>
@@ -170,7 +170,7 @@
             	</div>
             </div>	  
             
-             <div style="position: absolute; width: 169px; height: 36px; z-index: 1; left: 506px; top: 533px" id="layer7">&nbsp; 
+             <div style="position: absolute; width: 169px; height: 36px; z-index: 1; left: 750px; top: 533px" id="layer7">&nbsp; 
                     <input type="submit" value="Update">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="reset" value="Reset">&nbsp;
                 </div>

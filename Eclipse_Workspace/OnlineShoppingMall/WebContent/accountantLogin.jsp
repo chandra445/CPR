@@ -73,6 +73,7 @@ Released   : 20071101
 					<li><a href="ordersByAccountant.do">View Orders</a></li>
 					<li><a href="getAccountant.do">Edit Profile</a></li>
 					<li ><a href="viewFeedbackByAccountant.do">View Feedback/Grievances</a></li>
+					<li ><a href="viewStoreFeedbackByAccountant.do">View Feedback/Grievances from Stores</a></li>
 					<li><a href="logout.do">Logout</a></li>
 				</ul>
 			</li>

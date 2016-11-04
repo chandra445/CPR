@@ -190,5 +190,35 @@ public class StoreRegistrationDao {
 
 		return orderDetails;
 	}
+	
+	public int saveFeedbackByStore(UserBean cr) {
+		return jdbcTemplate.update("{call insertFeedbackByStore (?,?)}", new Object[] { cr.getFeedback(),cr.getStrname() });
+	}
+
+	public List<UserBean> viewFeedbackByStoreManager(StoreRegistration strBean) {
+		List<UserBean> fb = new ArrayList<UserBean>();
+
+		String sql = "select * from feedback where strname=?";
+		System.out.println("query=======" + sql);
+		try {
+			@SuppressWarnings({ "unchecked", "rawtypes" })
+			List<Map> rows = jdbcTemplate.queryForList(sql, new Object[] {strBean.getStrname()});
+			for (Map row : rows) {
+				UserBean ub = new UserBean();
+				Date date=(Date) row.get("feedbackDate");
+				
+				ub.setUname((String) row.get("uname"));
+				ub.setFeedback((String)row.get("feedback"));
+				ub.setFeedbackDate(date.toString());
+				ub.setStrname((String) row.get("strname"));
+				
+				fb.add(ub);
+			}
+		} catch (Exception ex) {
+			ex.getMessage();
+		}
+
+		return fb;
+	}
 
 }

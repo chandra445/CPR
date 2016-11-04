@@ -78,7 +78,8 @@ Released   : 20071101
 					<li><a href="getStoreNamesForAdmin.do">Delete Store</a></li>
 					<li><a href="viewProductsByAdmin.do">View Products</a></li>
 					<li><a href="viewAllOrdersByAdmin.do">View Orders</a></li>
-					<li><a href="viewFeedbackByAdmin.do">View Feedback/Grievances</a></li>
+					<li><a href="viewFeedbackByAdmin.do">View Feedback/Grievances from customers</a></li>
+					<li><a href="viewStoreFeedbackByAdmin.do">View Feedback/Grievances from Stores</a></li>
 					<li><a href="logout.do">Logout</a></li>
 				</ul>
 			</li>

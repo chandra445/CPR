@@ -73,6 +73,8 @@ Released   : 20071101
 					<li><a href="addproduct1.do">Manage Products</a></li>
 					<li><a href="getstoreOrders.do">ViewOrders</a></li>
 					<li><a href="getstoredetails.do">updateStoreDetails</a></li>
+					<li><a href="sendFeedbackByStore.jsp">Give Feedback/Complaint</a></li>
+					<li><a href="viewFeedbackByStoreManager.do">View Store Feedback/Complaints</a></li>
 					<li><a href="logout.do">Logout</a></li>
 				</ul>
 			</li>

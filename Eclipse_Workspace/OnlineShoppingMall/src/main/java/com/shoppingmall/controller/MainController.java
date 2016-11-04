@@ -394,6 +394,46 @@ public class MainController {
 		return model;
 	}
 	
+	
+	@RequestMapping(value = "/registerComplaintByStore.do", method = RequestMethod.POST)
+	public ModelAndView registerComplaintByStore(@ModelAttribute UserBean user, HttpServletRequest request) {
+
+		StoreRegistration strBean = (StoreRegistration) request.getSession().getAttribute("storeManager");
+		ModelAndView model = new ModelAndView();
+		if (strBean == null) {
+			return new ModelAndView("login");
+		} else {
+			user.setStrname(strBean.getStrname());
+			user.setUname(strBean.getUname());
+			model.setViewName("sendFeedbackByStore");
+			storeRegistrationDao.saveFeedbackByStore(user);
+
+			model.addObject("msgfeedback", "Hi " + user.getUname() + " Thanks for your Feedback..!");
+		}
+
+		return model;
+	}
+	
+	@RequestMapping(value = "/viewFeedbackByStoreManager.do")
+	public ModelAndView viewFeedbackByStoreManager( HttpServletRequest request) {
+
+		StoreRegistration strBean = (StoreRegistration) request.getSession().getAttribute("storeManager");
+		List<UserBean> feedbacklist = null;
+		ModelAndView model = new ModelAndView();
+		if (strBean == null) {
+			return new ModelAndView("login");
+		} else {
+
+			feedbacklist = storeRegistrationDao.viewFeedbackByStoreManager(strBean);
+			model.addObject("feedbacklist", feedbacklist);
+			model.setViewName("viewFeedbackByStoreManager");
+
+			model.addObject("msg", "Customer Feedback/Complaint for your stores");
+		}
+
+		return model;
+	}
+	
 
 
 	@RequestMapping(value = "/updateProduct.do", method = RequestMethod.POST)
@@ -654,6 +694,28 @@ public class MainController {
 		return model;
 	}
 	
+	// view store feedback by accountant
+	
+	@RequestMapping(value = "/viewStoreFeedbackByAccountant.do")
+	public ModelAndView viewStoreFeedbackByAccountant(@ModelAttribute("product") Product product, HttpServletRequest request) {
+
+		UserBean userBean = (UserBean) request.getSession().getAttribute("Accountant");
+		List<UserBean> feedbacklist = null;
+		ModelAndView model = new ModelAndView();
+		if (userBean == null) {
+			return new ModelAndView("login");
+		} else {
+
+			feedbacklist = accountantDao.viewStoreFeedbackByAccountant();
+			model.addObject("feedbacklist", feedbacklist);
+			model.setViewName("viewStoreFeedbackByAcc");
+
+			model.addObject("msg", " Feedback/Complaint from different stores");
+		}
+
+		return model;
+	}
+	
 	// Admin view feedback
 	@RequestMapping(value = "/viewFeedbackByAdmin.do")
 	public ModelAndView viewFeedbackByAdmin(@ModelAttribute("user") UserBean user, HttpServletRequest request) {
@@ -674,6 +736,27 @@ public class MainController {
 
 		return model;
 	}
+	
+	// view store feedback by admin
+		@RequestMapping(value = "/viewStoreFeedbackByAdmin.do")
+		public ModelAndView viewStoreFeedbackByAdmin(@ModelAttribute("user") UserBean user, HttpServletRequest request) {
+
+			UserBean userBean = (UserBean) request.getSession().getAttribute("Admin");
+			List<UserBean> feedbacklist = null;
+			ModelAndView model = new ModelAndView();
+			if (userBean == null) {
+				return new ModelAndView("login");
+			} else {
+
+				feedbacklist = accountantDao.viewStoreFeedbackByAccountant();
+				model.addObject("feedbacklist", feedbacklist);
+				model.setViewName("viewStoreFeedbackByAdmin");
+
+				model.addObject("msg", " Feedback/Complaint from different stores");
+			}
+
+			return model;
+		}
 	
 
 	
