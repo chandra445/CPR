@@ -11,7 +11,7 @@
     <body>
         <form action="saveupdatedProduct.do" method=post name=multi>
 	        
-           <div style="position: absolute; width: 535px; height: 54px; z-index: 1; left: 355px; top: 266px" id="layer1">	
+           <div style="position: absolute; width: 535px; height: 54px; z-index: 1; left: 650px; top: 266px" id="layer1">	
                 <div align="center">
                 <table border="0" width="73%" id="table1">
                     <tr>
@@ -41,7 +41,7 @@
                     </tr>
                 </table>
                 </div>
-                <div style="position: absolute; width: 169px; height: 23px; z-index: 1; left: 122px; top: 192px" id="layer7">&nbsp; 
+                <div style="position: absolute; width: 169px; height: 23px; z-index: 1; left: 150px; top: 192px" id="layer7">&nbsp; 
                     <input type="submit" value="Update">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="reset" value="Reset">
                 </div>

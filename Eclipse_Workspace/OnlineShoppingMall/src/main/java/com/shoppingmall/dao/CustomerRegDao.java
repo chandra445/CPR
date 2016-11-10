@@ -34,11 +34,10 @@ public class CustomerRegDao {
 	public UserBean checkLoginUser(String uname, String upass, String urole) {
 		UserBean cr = null;
 		// List<User> userList = new ArrayList<User>();
-		String sql = "select uname,ftname,mobile,addr1,addr2,city,state,country,zip,pwd,userid from USERBEAN where uname= '"
-				+ uname + "' and pwd= '" + upass + "'";
+		String sql = "select uname,ftname,mobile,addr1,addr2,city,state,country,zip,pwd,userid from USERBEAN where uname=? and pwd= ?";
 		System.out.println("query=======" + sql);
 		try {
-			cr = (UserBean) jdbcTemplate.queryForObject(sql, new Object[] {}, new CustomerRowMapper());
+			cr = (UserBean) jdbcTemplate.queryForObject(sql, new Object[] {uname, upass}, new CustomerRowMapper());
 		} catch (Exception ex) {
 			ex.getMessage();
 		}
@@ -49,11 +48,10 @@ public class CustomerRegDao {
 	public UserBean checkUser(String uname, String email) {
 		UserBean cr = null;
 		// List<User> userList = new ArrayList<User>();
-		String sql = "select uname, ftname from USERBEAN where uname= '" + uname + "' and email= '" + email
-				+ "'";
+		String sql = "select uname, ftname from USERBEAN where uname= ? and email= ?";
 		System.out.println("query=======" + sql);
 		try {
-			cr = (UserBean) jdbcTemplate.queryForObject(sql, new Object[] {}, new CustomerCheckRowMapper());
+			cr = (UserBean) jdbcTemplate.queryForObject(sql, new Object[] {uname,email}, new CustomerCheckRowMapper());
 		} catch (Exception ex) {
 			ex.getMessage();
 		}

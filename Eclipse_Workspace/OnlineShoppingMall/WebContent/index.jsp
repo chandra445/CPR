@@ -39,8 +39,8 @@ Released   : 20071101
 				</small></p>
 			<h1><font face="Bell MT" size="5" color="#D15803"><a href="#">Welcome</a></font></h1>
 			<div class="entry">
-				<p><font size="2">The retail boom will face a strong competition from the 12 million mom-and-pop stores, which are easily accessible and approachable and provide services like free home delivery and goods at credit. But buying from Malls, Supermarkets and Department stores like Subhiksha, Marks & Spencers, etc gives a different feeling and the environment of pick and choose from a variety of products. A number of retail giants are also going to explore the market such as Reliance Retail Ltd and Wal-mart.</font></p>
-				<p> <font size="2">The revolution is driven by large expectations where both domestic and international players will be channel through which other large stores in India are spreading themselves across the country.</font></p>
+				<p><font size="2">Online shopping mall is a place where you can get accesses to different stores at single site. This is the place where customer can buy all his needs at single click and get to his door step. In the business point of view people can register their store and can sell their products to customer. .</font></p>
+				
 				
 			</div>
 		</div>

@@ -84,10 +84,11 @@
                         }
                         %>
                     </tr>
+                    <tr><td colspan="6" align="center"><input type="submit" value="Submit Order" name="B1"></td></tr>
                 </table>
             </div>
     	<div style="position: absolute; width: 100px; height: 32px; z-index: 5; left: 650px; top: 235px" id="layer5">
-			<input type="submit" value="Submit Order" name="B1"></div>
+			</div>
     </form>
     </body>
 </html>

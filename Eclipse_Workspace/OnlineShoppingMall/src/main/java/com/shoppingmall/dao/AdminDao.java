@@ -28,10 +28,10 @@ public class AdminDao {
 	public UserBean checkAdmin(String uname, String pwd) {
 		UserBean cr = null;
 		// List<User> userList = new ArrayList<User>();
-		String sql = "select uname,pwd from admin where uname= '" + uname + "' and pwd= '" + pwd + "'";
+		String sql = "select uname,pwd from admin where uname= ? and pwd= ?";
 		System.out.println("query=======" + sql);
 		try {
-			cr = (UserBean) jdbcTemplate.queryForObject(sql, new Object[] {}, new AdminCheckRowMapper());
+			cr = (UserBean) jdbcTemplate.queryForObject(sql, new Object[] {uname,pwd}, new AdminCheckRowMapper());
 		} catch (Exception ex) {
 			ex.getMessage();
 		}

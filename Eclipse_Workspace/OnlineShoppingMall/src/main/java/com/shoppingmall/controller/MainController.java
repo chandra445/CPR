@@ -43,22 +43,13 @@ public class MainController {
 				if (loguser != null) {
 					session = request.getSession();
 					user.setFtname(loguser.getFtname());
-					/*
-					 * user.setAddr1(loguser.getAddr1());
-					 * user.setAddr2(loguser.getAddr2());
-					 * user.setCity(loguser.getCity());
-					 * user.setState(loguser.getState());
-					 * user.setCountry(loguser.getCountry());
-					 * user.setZip(loguser.getZip());
-					 * user.setMobile(loguser.getMobile());
-					 * user.setUname(loguser.getUname());
-					 */
+
 					model.addObject("msg", "Hi " + user.getFtname() + " You are Successfully Logged In");
 					model.setViewName("customerLogin");
 					session.setAttribute("customer", loguser);
 
 				} else {
-					model.addObject("msgFailure", "Sorry, Please Login With Proper Credentials");
+					model.addObject("msg", "Sorry, Please Login With Proper Credentials");
 					model.setViewName("login");
 				}
 
@@ -77,7 +68,7 @@ public class MainController {
 					session.setAttribute("storeManager", sr);
 
 				} else {
-					model.addObject("msgFailure", "Sorry, Please Login With Proper Credentials");
+					model.addObject("msg", "Sorry, Please Login With Proper Credentials");
 					model.setViewName("login");
 				}
 
@@ -95,7 +86,7 @@ public class MainController {
 					session.setAttribute("Admin", loguser);
 
 				} else {
-					model.addObject("msgFailure", "Sorry, Please Login With Proper Credentials");
+					model.addObject("msg", "Sorry, Please Login With Proper Credentials");
 					model.setViewName("login");
 				}
 			} else if (userrole.equals("Accountant")) {
@@ -113,7 +104,7 @@ public class MainController {
 					session.setAttribute("Accountant", loguser);
 
 				} else {
-					model.addObject("msgFailure", "Sorry, Please Login With Proper Credentials");
+					model.addObject("msg", "Sorry, Please Login With Proper Credentials");
 					model.setViewName("login");
 				}
 			}
@@ -152,7 +143,7 @@ public class MainController {
 		}
 		return model;
 	}
-	
+
 	@RequestMapping(value = "/updateCustomer.do", method = RequestMethod.POST)
 	public ModelAndView updateCustomer(@ModelAttribute("updatecustomer") UserBean updatecustomer) {
 
@@ -373,8 +364,6 @@ public class MainController {
 		return model;
 	}
 
-	
-
 	@RequestMapping(value = "/getUpdateProductPage.do")
 	public ModelAndView getUpdateProductPage(@ModelAttribute("product") Product product, HttpServletRequest request) {
 		StoreRegistration strBean = (StoreRegistration) request.getSession().getAttribute("storeManager");
@@ -393,8 +382,7 @@ public class MainController {
 
 		return model;
 	}
-	
-	
+
 	@RequestMapping(value = "/registerComplaintByStore.do", method = RequestMethod.POST)
 	public ModelAndView registerComplaintByStore(@ModelAttribute UserBean user, HttpServletRequest request) {
 
@@ -413,9 +401,9 @@ public class MainController {
 
 		return model;
 	}
-	
+
 	@RequestMapping(value = "/viewFeedbackByStoreManager.do")
-	public ModelAndView viewFeedbackByStoreManager( HttpServletRequest request) {
+	public ModelAndView viewFeedbackByStoreManager(HttpServletRequest request) {
 
 		StoreRegistration strBean = (StoreRegistration) request.getSession().getAttribute("storeManager");
 		List<UserBean> feedbacklist = null;
@@ -433,8 +421,6 @@ public class MainController {
 
 		return model;
 	}
-	
-
 
 	@RequestMapping(value = "/updateProduct.do", method = RequestMethod.POST)
 	public ModelAndView updateProduct(@ModelAttribute("product") Product product, HttpServletRequest request) {
@@ -544,9 +530,9 @@ public class MainController {
 		return model;
 
 	}
-	
+
 	@RequestMapping(value = "/getstoreOrders.do")
-	public ModelAndView getstoreOrders( HttpServletRequest request) {
+	public ModelAndView getstoreOrders(HttpServletRequest request) {
 
 		StoreRegistration sr = (StoreRegistration) request.getSession().getAttribute("storeManager");
 		List<OrderDetails> viewAllOrdersByStoreManager = null;
@@ -608,7 +594,7 @@ public class MainController {
 		}
 		return model;
 	}
-	
+
 	@RequestMapping(value = "/getAccountant.do")
 	public ModelAndView getAccountant(@ModelAttribute("user1") UserBean user, HttpServletRequest request) {
 
@@ -638,7 +624,7 @@ public class MainController {
 		}
 		return model;
 	}
-	
+
 	// Order View by accountant
 	@RequestMapping(value = "/ordersByAccountant.do")
 	public ModelAndView ordersByAccountant(@ModelAttribute("user") UserBean user, HttpServletRequest request) {
@@ -660,7 +646,7 @@ public class MainController {
 
 		return model;
 	}
-	
+
 	@RequestMapping(value = "/updateAccountant.do", method = RequestMethod.POST)
 	public ModelAndView updateAccountant(@ModelAttribute("updatecustomer") UserBean updatecustomer) {
 
@@ -673,9 +659,10 @@ public class MainController {
 		}
 		return model;
 	}
-	
+
 	@RequestMapping(value = "/viewFeedbackByAccountant.do")
-	public ModelAndView viewFeedbackByAccountant(@ModelAttribute("product") Product product, HttpServletRequest request) {
+	public ModelAndView viewFeedbackByAccountant(@ModelAttribute("product") Product product,
+			HttpServletRequest request) {
 
 		UserBean userBean = (UserBean) request.getSession().getAttribute("Accountant");
 		List<UserBean> feedbacklist = null;
@@ -693,11 +680,12 @@ public class MainController {
 
 		return model;
 	}
-	
+
 	// view store feedback by accountant
-	
+
 	@RequestMapping(value = "/viewStoreFeedbackByAccountant.do")
-	public ModelAndView viewStoreFeedbackByAccountant(@ModelAttribute("product") Product product, HttpServletRequest request) {
+	public ModelAndView viewStoreFeedbackByAccountant(@ModelAttribute("product") Product product,
+			HttpServletRequest request) {
 
 		UserBean userBean = (UserBean) request.getSession().getAttribute("Accountant");
 		List<UserBean> feedbacklist = null;
@@ -715,7 +703,7 @@ public class MainController {
 
 		return model;
 	}
-	
+
 	// Admin view feedback
 	@RequestMapping(value = "/viewFeedbackByAdmin.do")
 	public ModelAndView viewFeedbackByAdmin(@ModelAttribute("user") UserBean user, HttpServletRequest request) {
@@ -736,30 +724,28 @@ public class MainController {
 
 		return model;
 	}
-	
+
 	// view store feedback by admin
-		@RequestMapping(value = "/viewStoreFeedbackByAdmin.do")
-		public ModelAndView viewStoreFeedbackByAdmin(@ModelAttribute("user") UserBean user, HttpServletRequest request) {
+	@RequestMapping(value = "/viewStoreFeedbackByAdmin.do")
+	public ModelAndView viewStoreFeedbackByAdmin(@ModelAttribute("user") UserBean user, HttpServletRequest request) {
 
-			UserBean userBean = (UserBean) request.getSession().getAttribute("Admin");
-			List<UserBean> feedbacklist = null;
-			ModelAndView model = new ModelAndView();
-			if (userBean == null) {
-				return new ModelAndView("login");
-			} else {
+		UserBean userBean = (UserBean) request.getSession().getAttribute("Admin");
+		List<UserBean> feedbacklist = null;
+		ModelAndView model = new ModelAndView();
+		if (userBean == null) {
+			return new ModelAndView("login");
+		} else {
 
-				feedbacklist = accountantDao.viewStoreFeedbackByAccountant();
-				model.addObject("feedbacklist", feedbacklist);
-				model.setViewName("viewStoreFeedbackByAdmin");
+			feedbacklist = accountantDao.viewStoreFeedbackByAccountant();
+			model.addObject("feedbacklist", feedbacklist);
+			model.setViewName("viewStoreFeedbackByAdmin");
 
-				model.addObject("msg", " Feedback/Complaint from different stores");
-			}
-
-			return model;
+			model.addObject("msg", " Feedback/Complaint from different stores");
 		}
-	
 
-	
+		return model;
+	}
+
 	@RequestMapping(value = "/viewProductsByAdmin.do")
 	public ModelAndView viewProductsByAdmin(@ModelAttribute("user") UserBean user, HttpServletRequest request) {
 
@@ -780,6 +766,7 @@ public class MainController {
 
 		return model;
 	}
+
 	@RequestMapping(value = "/viewAllOrdersByAdmin.do")
 	public ModelAndView viewAllOrdersByAdmin(@ModelAttribute("user") UserBean user, HttpServletRequest request) {
 
@@ -800,6 +787,7 @@ public class MainController {
 
 		return model;
 	}
+
 	@RequestMapping(value = "/orderByStore.do")
 	public ModelAndView viewProductsByCustomer(@ModelAttribute("product") Product product, HttpServletRequest request) {
 
@@ -820,6 +808,7 @@ public class MainController {
 
 		return model;
 	}
+
 	@RequestMapping(value = "/getAccountants.do")
 	public ModelAndView getAccountants(@ModelAttribute("user") UserBean user, HttpServletRequest request) {
 		UserBean userBean = (UserBean) request.getSession().getAttribute("Admin");
@@ -842,17 +831,17 @@ public class MainController {
 	@RequestMapping(value = "/deleteAccountant.do", method = RequestMethod.POST)
 	public ModelAndView deleteAccountant(@ModelAttribute("user") UserBean user, HttpServletRequest request) {
 
-		
 		ModelAndView model = new ModelAndView("adminLogin");
 		int i = adminDao.deleteGenericUser(user);
 		if (i > 0) {
-			model.addObject("msg", " Hi Admin you have successfully deleted an Accountant with username  "+ user.getUname());
+			model.addObject("msg",
+					" Hi Admin you have successfully deleted an Accountant with username  " + user.getUname());
 		} else {
 			model.addObject("msg", " Sorry Problem during delete");
 		}
 		return model;
 	}
-	
+
 	@RequestMapping(value = "/getCustomers.do")
 	public ModelAndView getCustomers(@ModelAttribute("user") UserBean user, HttpServletRequest request) {
 		UserBean userBean = (UserBean) request.getSession().getAttribute("Admin");
@@ -875,17 +864,17 @@ public class MainController {
 	@RequestMapping(value = "/deleteCustomer.do", method = RequestMethod.POST)
 	public ModelAndView deleteCustomer(@ModelAttribute("user") UserBean user, HttpServletRequest request) {
 
-		
 		ModelAndView model = new ModelAndView("adminLogin");
 		int i = adminDao.deleteGenericUser(user);
 		if (i > 0) {
-			model.addObject("msg", " Hi Admin you have successfully deleted Customer with username  "+ user.getUname());
+			model.addObject("msg",
+					" Hi Admin you have successfully deleted Customer with username  " + user.getUname());
 		} else {
 			model.addObject("msg", " Sorry Problem during delete");
 		}
 		return model;
 	}
-	
+
 	@RequestMapping(value = "/getStoreNamesForAdmin.do")
 	public ModelAndView getStoreNamesForAdmin(@ModelAttribute("user") UserBean user, HttpServletRequest request) {
 		UserBean userBean = (UserBean) request.getSession().getAttribute("Admin");
@@ -894,7 +883,7 @@ public class MainController {
 		if (userBean == null) {
 			return new ModelAndView("login");
 		} else {
-			
+
 			storeList = adminDao.getStorelist();
 			model.addObject("storeList", storeList);
 			model.setViewName("deleteStoreByAdmin");
@@ -908,16 +897,17 @@ public class MainController {
 	@RequestMapping(value = "/deleteStore.do", method = RequestMethod.POST)
 	public ModelAndView deleteStoreManager(@ModelAttribute("sr") StoreRegistration sr, HttpServletRequest request) {
 
-		
 		ModelAndView model = new ModelAndView("adminLogin");
-		
+
 		int j = adminDao.deleteProducts(sr);
 		int i = adminDao.deleteStore(sr);
 		if (i > 0) {
-			if(j>0)
-			model.addObject("msg", " Hi Admin you have successfully deleted Store with storename  "+ sr.getStrname()+" and also products associated to it.");
+			if (j > 0)
+				model.addObject("msg", " Hi Admin you have successfully deleted Store with storename  "
+						+ sr.getStrname() + " and also products associated to it.");
 			else
-				model.addObject("msg", " Hi Admin you have successfully deleted Store with storename  "+ sr.getStrname());
+				model.addObject("msg",
+						" Hi Admin you have successfully deleted Store with storename  " + sr.getStrname());
 		} else {
 			model.addObject("msg", " Sorry Problem during delete");
 		}
@@ -928,14 +918,12 @@ public class MainController {
 	public ModelAndView getAdmissionForm(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("login");
 		HttpSession session = request.getSession();
-		//session.removeAttribute("customer");
+
 		session.invalidate();
 		System.out.println(session);
 		model.addObject("logoutMsg", "Your are sucessfully logged out");
 		return model;
 
 	}
-	
-	
 
 }

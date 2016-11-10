@@ -85,7 +85,7 @@
 
 
                 %>
-		<div style="position: absolute; width: 275px; height: 29px; z-index: 1; left: 365px; top: 239px" id="layer2">
+		<div style="position: absolute; width: 275px; height: 29px; z-index: 1; left: 550px; top: 239px" id="layer2">
 			<font color="#D15803">
 			<b>Your Order Details are </b>
 			</font>
@@ -101,7 +101,7 @@
                 	System.out.println("exception" +e);
                 	
                     %>
-                    <div style="position: absolute; width: 275px; height: 29px; z-index: 1; left: 364px; top: 237px" id="layer2">
+                    <div style="position: absolute; width: 275px; height: 29px; z-index: 1; left: 550px; top: 237px" id="layer2">
                      <font color="#D15803">
                      <b>Order Already Submitted.. </b>
 	                	</font>
@@ -109,7 +109,7 @@
                <% }
                %>          
             <form action="completeOrder.do" method="post">
-    		<div style="position: absolute; width: 663px; height: 204px; z-index: 2; left: 365px; top: 342px" id="layer3">
+    		<div style="position: absolute; width: 663px; height: 204px; z-index: 2; left: 550px; top: 342px" id="layer3">
 	<%
 
               st2=con.createStatement();
@@ -123,12 +123,12 @@
 					
 					<tr>
 						<td width="112"><b><font size="2">Order Details:</font></b></td></tr>
-						<tr><td>
+						<tr><td colspan="2">
                                                     
                                                 For this order id  there are <%=x%> orders  </td></tr>
 
-                                            <tr><td>    Details are as follows </td></tr>
-                                             <tr><td>    <%
+                                            <tr><td colspan="2">    Details are as follows </td></tr>
+                                             <tr><td colspan="3">    <%
                                                 int i=0;
                                                while(rs1.next())
                                                 {

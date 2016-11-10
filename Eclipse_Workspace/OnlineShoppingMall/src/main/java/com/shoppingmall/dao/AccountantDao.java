@@ -25,11 +25,10 @@ public class AccountantDao {
 	public UserBean checkAccountant(String uname, String pwd) {
 		UserBean cr = null;
 		// List<User> userList = new ArrayList<User>();
-		String sql = "select uname,pwd from accountantRegistration where uname= '"
-				+ uname + "' and pwd= '" + pwd + "'";
+		String sql = "select uname,pwd from accountantRegistration where uname=? and pwd=?";
 		System.out.println("query=======" + sql);
 		try {
-			cr = (UserBean) jdbcTemplate.queryForObject(sql, new Object[] {}, new AccountantCheckRowMapper());
+			cr = (UserBean) jdbcTemplate.queryForObject(sql, new Object[] {uname,pwd}, new AccountantCheckRowMapper());
 		} catch (Exception ex) {
 			ex.getMessage();
 		}
